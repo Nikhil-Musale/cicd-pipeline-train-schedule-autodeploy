@@ -17,7 +17,19 @@ node {
 //task build
 
 //declare a task to create a zip of the app
-
+task zip(type: Zip) {
+	from '.'
+	include "*"
+	include "bin/**"
+	include "data/**"
+	include "node_modules/**"
+	include "public/**"
+	include "routes/**"
+	include "views/**"
+	archiveName 'Reports.zip'
+	destinationDir(file('dist'))
+	baseName 'trainSchedule'
+}
 
 //declare task dependencies
 build.dependsOn zip
