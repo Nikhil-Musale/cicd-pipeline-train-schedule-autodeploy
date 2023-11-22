@@ -1,9 +1,3 @@
-import hudson.model.*
-import hudson.EnvVars
-import groovy.json.JsonSlurperClassic
-import groovy.json.JsonBuilder
-import groovy.json.JsonOutput
-import java.net.URL
 
 pipeline {
     agent any
@@ -15,7 +9,7 @@ pipeline {
         stage('Build') {
             steps {
                 echo 'Running build automation'
-                sh './gradlew build --no-daemon'
+                sh './gradlew build --scan'
             }
         }
         stage('Build Docker Image') {
