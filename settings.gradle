@@ -8,4 +8,4 @@
  rootProject.name = 'cicd-pipeline-train-schedule-autodeploy'
  */
 
-
+rootProject.name = 'gradleproject'
