@@ -1,10 +1,6 @@
 plugins {
   //inlude the nodeJS plugin to execute nodejs and npm tasks
   id "com.moowork.node" version "1.2.0"
-  id("com.gradle.plugin-publish") version "1.0.0-rc-3"
-    id("com.cinnober.gradle.semver-git") version "3.0.0"
-    id("org.jetbrains.dokka") version "1.7.10"
-    id("org.gradle.test-retry") version "1.5.0"
 }
 
 node {
@@ -14,18 +10,8 @@ node {
 }
 
 //declare a build task
-//task build
-tasks.npmInstall {
-    dependsOn nodeInstall
-}
+task build
 
-tasks.npmBuild {
-    dependsOn npmInstall
-}
-
-tasks.build {
-    dependsOn npmBuild
-}
 //declare a task to create a zip of the app
 task zip(type: Zip) {
 	from ('.') {
@@ -37,7 +23,7 @@ task zip(type: Zip) {
 		include "routes/**"
 		include "views/**"
 	}
-	destinationDir file("dist")
+	destinationDir(file("dist"))
 	baseName "trainSchedule"
 }
 
