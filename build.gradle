@@ -14,7 +14,7 @@ node {
 }
 
 //declare a build task
-task build
+//task build
 tasks.npmInstall {
     dependsOn nodeInstall
 }
